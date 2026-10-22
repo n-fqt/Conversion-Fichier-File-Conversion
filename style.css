@@ -1,0 +1,219 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url('https://i.pinimg.com/1200x/05/ec/cd/05eccd8679d1ba6da24b6684c4a6b22c.jpg') no-repeat center center/cover;
+    overflow: hidden;
+    color: #fff;
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(80, 40, 120, 0.6);
+    z-index: -1;
+}
+
+.app-container {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    width: 90%;
+    max-width: 1000px;
+    height: 80%;
+    position: relative;
+}
+
+.glass {
+    background: rgba(180, 140, 220, 0.3);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.drop-zone {
+    flex: 1;
+    height: 100%;
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 1.2rem;
+    color: #333;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.drop-zone.dragover {
+    background: rgba(220, 180, 255, 0.5);
+    border: 2px dashed #fff;
+    transform: scale(1.02);
+}
+
+.arrow {
+    width: 100px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0; 
+    filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.6)); 
+}
+
+.arrow svg {
+    width: 100%;
+    height: 100%;
+    overflow: visible; 
+}
+
+.arrow svg line, 
+.arrow svg polyline {
+    stroke: #320f5e !important;
+}
+
+.categories-panel {
+    flex: 0.8;
+    height: 100%;
+    border-radius: 30px;
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: 15px;
+}
+
+.category-btn {
+    background: rgba(255, 255, 255, 0.8);
+    color: #000;
+    border: none;
+    padding: 15px 20px;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.2s;
+    text-align: center;
+}
+
+.category-btn:hover {
+    background: rgba(255, 255, 255, 1);
+    transform: translateX(-5px);
+}
+
+.history-btn {
+    position: absolute;
+    bottom: -60px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 12px 30px;
+    border-radius: 25px;
+    border: none;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.history-btn:hover {
+    background: rgba(0, 0, 0, 0.9);
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+.modal-overlay.active {
+    display: flex;
+}
+
+.modal-content {
+    background: #fff;
+    color: #333;
+    padding: 30px;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+}
+
+.modal-content h3 {
+    margin-bottom: 20px;
+    color: #4a148c;
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #666;
+    background: none;
+    border: none;
+}
+
+.conversion-options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.conversion-btn {
+    padding: 12px;
+    border: 1px solid #ccc;
+    background: #f9f9f9;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 1rem;
+    text-align: left;
+}
+
+.conversion-btn:hover {
+    background: #e0d4f5;
+    border-color: #4a148c;
+}
+
+.error-msg {
+    color: #d32f2f;
+    font-weight: bold;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.history-list {
+    list-style: none;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.history-list li {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    font-size: 0.9rem;
+}
+
+.history-list li:last-child {
+    border-bottom: none;
+}

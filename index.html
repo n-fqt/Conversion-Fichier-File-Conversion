@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convertisseur de Fichiers</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="app-container">
+        
+        <div class="drop-zone glass" id="drop-zone">
+            <p id="drop-text">Entrez votre fichier ici</p>
+            <input type="file" id="file-input" style="display: none;">
+        </div>
+
+        <div class="arrow">
+            <svg viewBox="0 0 100 50" xmlns="http://www.w3.org/2000/svg">
+                
+                <line x1="10" y1="25" x2="85" y2="25" stroke-width="5" stroke-linecap="round"/>
+                
+                <polyline points="70 10, 85 25, 70 40" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            </svg>
+        </div>
+
+        <div class="categories-panel glass">
+            <button class="category-btn" data-category="documents">Documents & PDF</button>
+            <button class="category-btn" data-category="images">Images (JPG, PNG, WebP, SVG...)</button>
+            <button class="category-btn" data-category="videos">Vidéos (MP4, AVI, MOV...)</button>
+            <button class="category-btn" data-category="audio">Audio (MP3, WAV, FLAC...)</button>
+            <button class="category-btn" data-category="ebooks">Ebooks (EPUB, MOBI, AZW3...)</button>
+        </div>
+
+        <button class="history-btn" id="history-btn">
+            🕒 Historique des téléchargements
+        </button>
+    </div>
+
+    <div class="modal-overlay" id="conversion-modal">
+        <div class="modal-content">
+            <button class="close-btn" onclick="closeModal('conversion-modal')">&times;</button>
+            <h3 id="conversion-title">Options de conversion</h3>
+            <div class="conversion-options" id="conversion-list"></div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="error-modal">
+        <div class="modal-content">
+            <button class="close-btn" onclick="closeModal('error-modal')">&times;</button>
+            <h3>Erreur de format</h3>
+            <p class="error-msg" id="error-text">Le fichier sélectionné ne correspond pas à cette catégorie.</p>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="history-modal">
+        <div class="modal-content">
+            <button class="close-btn" onclick="closeModal('history-modal')">&times;</button>
+            <h3>Historique des conversions</h3>
+            <ul class="history-list" id="history-list">
+                <li>Aucun fichier converti pour le moment.</li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
